@@ -26,7 +26,7 @@
         color: black;
       }
     </style>
-    <link rel="stylesheet" href="static/style.css" />
+    
   </head>
 
   <body>
@@ -42,30 +42,7 @@
             <th class="text-center">Command</th>
             <th class="text-center">Title</th>
 
-            {% if no_results %}
-            <div id="myModal" class="modal">
-              <!-- Modal content -->
-              <div class="modal-content">
-                <a href="/" class="close">&times;</a>
-                <p>No Officer Found..</p>
-              </div>
-            </div>
-
-            <script>
-              var modal = document.getElementById("myModal");
-              // Get the <span> element that closes the modal
-              var span = document.getElementsByClassName("close")[0];
-              // When the user clicks on the button, open the modal
-              function openModal() {
-                modal.style.display = "block";
-              }
-              openModal();
-              // When the user clicks on <span> (x), close the modal
-              span.onclick = function () {
-                modal.style.display = "none";
-              };
-            </script>
-            {% else %} {%for officer in officers%}
+             {%for officer in officers%}
             <tr>
               <td>
                 <a href="/officer_results/{{officer['unique_mos_id']}}"
@@ -75,7 +52,7 @@
               <td>{{officer['command_now']}} &nbsp;</td>
               <td>{{officer['rank_now']}}</td>
             </tr>
-            {%endfor%} {% endif %}
+            {%endfor%}
           </tbody>
         </table>
       </div>
